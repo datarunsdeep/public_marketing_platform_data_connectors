@@ -1,0 +1,2 @@
+# public_marketing_platform_data_connectors
+common marketing platform data connectors

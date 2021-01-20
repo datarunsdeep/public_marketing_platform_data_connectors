@@ -1,4 +1,3 @@
-#owner - ahmad@datarunsdeep.com.au
 # Copyright 2018 Data Runs Deep Pty Ltd. All rights reserved.
 
 '''

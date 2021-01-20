@@ -9,7 +9,7 @@
 
 
 # Copyright 2018 Data Runs Deep Pty Ltd. All rights reserved.
-# - Owner :ahmad@datarunsdeep.com.au
+
 
 # Install the necessary packages
 

@@ -106,7 +106,7 @@ if __name__ == '__main__':
     
 # Next steps:
 # Data preprocessing (depending on your need)
-# Push it to a datawareshouse of your choice 
+# Push it to a datawareshouse of your choice (For bigquery: https://github.com/datarunsdeep/public_marketing_platform_data_connectors/blob/1211f0f18e27c4b77b7072e72b6b57204a46dae6/facebook/main.py#L80)
 
 
 

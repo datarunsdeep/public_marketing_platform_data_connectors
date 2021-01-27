@@ -36,7 +36,7 @@ GOOGLE_ANALYTICS_SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 class GAAPI:
         
  # Function for API service
-    def get_analytics_service(self):
+    def __init__(self):
         """
         Instantiate a connection to the Google Analytics Reporting API
         :return:
@@ -49,17 +49,15 @@ class GAAPI:
     # cache_discovery=False is important within a Google Cloud Function,
     # otherwise the library looks for a local credentials file,
     # and eventually crashes
-        service_ga = build('analyticsreporting', 'v4', credentials=credentials,
+        self.service_ga = build('analyticsreporting', 'v4', credentials=credentials,
                        cache_discovery=False)
 
-        return service_ga
 
 # FUNCTION DEFINITIONS:
 
-    def get_data(self,analytics,dimension,pg_size,since,until):
+    def get_report(self,dimension,pg_size,since,until):
     # Use the Analytics Service Object to query the Analytics Reporting API V4.
-        print("\nDimensions Recieved",dimension)
-        return analytics.reports().batchGet(
+        return self.service_ga..reports().batchGet(
           body={
             'reportRequests': [
             {
@@ -90,7 +88,6 @@ if __name__ == '__main__':
     
     #initialise analytics object
     obj = GAAPI()
-    get_analytics = obj.get_analytics_service()
     
     try:
         ga_dimensions = [{'name':'ga:date'},{'name': 'ga:campaign'}]
@@ -98,7 +95,7 @@ if __name__ == '__main__':
         #cm_dimensions = [{'name':'ga:date'},{'name': 'ga:dcmClickSitePlacement'}]
         #dv_dimensions = [{'name':'ga:date'},{'name': 'ga:dbmClickLineItem'}]
         pg_size = 100000
-        response_ga = obj.get_data(get_analytics,ga_dimensions,pg_size,since,until)
+        response_ga = obj.get_report(ga_dimensions,pg_size,since,until)
         print(response_ga)
     except Exception as e:
         print(e)

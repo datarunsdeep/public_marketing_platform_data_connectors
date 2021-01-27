@@ -57,7 +57,7 @@ class GAAPI:
 
     def get_report(self,dimension,pg_size,since,until):
     # Use the Analytics Service Object to query the Analytics Reporting API V4.
-        return self.service_ga..reports().batchGet(
+        return self.service_ga.reports().batchGet(
           body={
             'reportRequests': [
             {

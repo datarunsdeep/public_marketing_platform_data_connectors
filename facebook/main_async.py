@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#Copyright 2018 Data Runs Deep Pty Ltd. All rights reserved.
+#Copyright 2020 Data Runs Deep Pty Ltd. All rights reserved.
 
 # The current utility is used to fetch insights data at ad level for an account.
 # Data is retreived in using facebook async post request. 
@@ -73,7 +73,7 @@ class LibFacebook:
                 }
             
             #using aync job with a 1 sec wait time
-            #be careful about using sync = True as that is a reserved keyword for python3
+            #be careful about using async = True as that is a reserved keyword for python3
             async_job = self.account.get_insights(fields=fields_ads,params=params_ads, is_async=True)
             async_job.api_get()
             while async_job[AdReportRun.Field.async_status] != 'Job Completed' or async_job[AdReportRun.Field.async_percent_completion] < 100:
@@ -87,7 +87,6 @@ class LibFacebook:
             result_arr = []
             for i in obj:
                 datadict = {}
-                
                 datadict["date"] = i.get("date_start")
                 datadict["campaign_id"] = i.get("campaign_id")
                 datadict["campaign_name"] = i.get("campaign_name")
@@ -101,7 +100,6 @@ class LibFacebook:
                 datadict["objective"] = i.get("objective")
                 datadict["reach"] = i.get("reach")
                 datadict["spend"] = i.get("spend")
-                  
             return result_arr
 
 

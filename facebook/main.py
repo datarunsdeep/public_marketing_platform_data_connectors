@@ -31,7 +31,7 @@ class LibFacebook:
             FacebookAdsApi.init(app_id, app_secret, access_token)
             self.account = AdAccount(ad_account_id)
         
-        #getting the insights at "Ad Level".
+        # Getting the insights at "Ad Level".
         # For a full list of available options visit https://developers.facebook.com/docs/marketing-api/insights 
         def get_ads_insights(self):
             # required fields
@@ -99,12 +99,12 @@ def write_data_to_BQ(df,table_name):
             
         
 if __name__ == '__main__':
-    # graph = facebook.GraphAPI(access_token)
+    #graph = facebook.GraphAPI(access_token)
     NewAccount = LibFacebook(app_id, app_secret, access_token, ad_account_id)
     #Get the Facebook insights data
     df_ads = facebook_ads_data(NewAccount)
-    # re-arrange column names 
+    #re-arrange column names 
     df_ads =df_ads[['date','campaign_name','campaign_id','ad_id','ad_name','impressions','objective','reach','spend']]
-#   Write data to a big query table
+    #Write data to a big query table
     write_data_to_BQ(df_ads,DESTINATION_TABLE_ADS)
 

@@ -26,15 +26,14 @@ import configurations as config
 client= bigquery.Client()
 PROJECT_ID = config.PROJECT_ID
 DATASET_ID = config.DATASET_ID
-TABLE_ID_1 = config.TABLE_ID_1
-TABLE_ID_2 = config.TABLE_ID_2
-app_id = config.APP_ID
-t = 1 
+TABLE_ID = config.TABLE_ID
+app_id = config.APP_ID 
 app_secret = config.APP_SECRET
 access_token = config.ACCESS_TOKEN
 ad_account_id = config.AD_ACCOUNT_ID
 DESTINATION_TABLE_CAMPAIGN = config.DESTINATION_TABLE_CAMPAIGN
 DESTINATION_TABLE_ADS = config.DESTINATION_TABLE_ADS
+t = 1
 # In[103]:
 CREDENTIALS_PATH = config.SERVICE_CREDENTIALS 
 #service account's authentication
